@@ -12,6 +12,7 @@ class ViewController: UIViewController {
 
     
     let testGit:Int = 0
+    let testCommit:Int = 1
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
