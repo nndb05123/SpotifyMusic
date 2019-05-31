@@ -22,6 +22,8 @@ class Player {
         let mp3URL = NSURL(string: fileUrl)
         avPlayer = AVPlayer(url: mp3URL as! URL)
         avPlayer.play()
+        setPlayingScreen(fileUrl: fileUrl)
+        
     }
     
     func playAudio()  {
@@ -36,6 +38,18 @@ class Player {
         {
             avPlayer.pause()
         }
+    }
+    
+    func setPlayingScreen(fileUrl: String) {
+        let urlArray = fileUrl.split(separator: "/")
+        let name = urlArray[urlArray.endIndex-1]
+        print(name)
+        
+        let songInfo = [
+            MPMediaItemPropertyTitle: name,
+            MPMediaItemPropertyArtist: "Test Media"
+        ]
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = songInfo
     }
     
 }

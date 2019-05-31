@@ -12,8 +12,9 @@ import  MediaPlayer
 class ViewController: UIViewController {
 
     var player : Player!
+    var musicModel : MusicModel!
     
-    var url = "https://aredir.nixcdn.com/NhacCuaTui963/ThiThoi-Reddy-5461229.mp3"
+    var url = "https://spotifyappbybaoduy.000webhostapp.com/phokhongemtd.mp3"
     
     var isPlayingMusic:Bool = false
     
@@ -63,13 +64,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         player = Player()
-        player.playStream(fileUrl: url)
-        changeIMGPlayButton()
+//        player.playStream(fileUrl: url)
+//        changeIMGPlayButton()
+        musicModel.retrieveSongs()
         setSession()
         UIApplication.shared.beginReceivingRemoteControlEvents()
         becomeFirstResponder()
         NotificationCenter.default.addObserver(self, selector: "handleInterruption" , name: AVAudioSession.interruptionNotification, object: nil)
-        
     }
     
     override func becomeFirstResponder() -> Bool {
