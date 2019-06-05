@@ -22,6 +22,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var playpauseButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var textTimBaiHat: UITextField!
+    
+    @IBAction func searchMusicClicked(_ sender: Any) {
+        songs.removeAll()
+        searchMusic(songName: textTimBaiHat.text!)
+        DispatchQueue.main.async() {
+            self.tableView.reloadData()
+        }
+        view.endEditing(true)
+    }
     
     @IBAction func playpauseButtonClicked(_ sender: Any) {
 
@@ -146,6 +156,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //        }
 //
 //        task.resume()
+    }
+    
+    func searchMusic(songName: String) {
+        Alamofire.request("https://spotifyappbybaoduy.000webhostapp.com/getSearchMusic.php?songname=\(songName)").responseJSON { response in
+            print("Request: \(String(describing: response.request))")   // original url request
+            print("Response: \(String(describing: response.response))") // http url response
+            print("Result: \(response.result)")                         // response serialization result
+            
+            if let json = response.result.value {
+                print("JSON: \(json)") // serialized json response
+            }
+            
+            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+                print("Data: \(utf8Text)") // original server data as UTF8 string
+                self.parseSongs(data: utf8Text)
+            }
+        }
     }
     
     func parseSongs(data: String) {

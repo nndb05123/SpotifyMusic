@@ -35,31 +35,34 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zly-ff-Z0C">
                                 <rect key="frame" x="0.0" y="64" width="375" height="30"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="elC-8p-PUN">
+                                        <rect key="frame" x="307" y="0.0" width="60" height="30"/>
+                                        <state key="normal" title="Tìm"/>
+                                        <connections>
+                                            <action selector="searchMusicClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZhC-wi-TTP"/>
+                                        </connections>
+                                    </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tìm bài hát" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c6S-TT-lYp">
-                                        <rect key="frame" x="0.0" y="0.0" width="312" height="30"/>
+                                        <rect key="frame" x="8" y="0.0" width="312" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="elC-8p-PUN">
-                                        <rect key="frame" x="307" y="0.0" width="60" height="30"/>
-                                        <state key="normal" title="Tìm"/>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="elC-8p-PUN" secondAttribute="trailing" constant="8" id="14R-eN-ZJs"/>
+                                    <constraint firstItem="c6S-TT-lYp" firstAttribute="leading" secondItem="Zly-ff-Z0C" secondAttribute="leading" constant="8" id="44k-GY-AZK"/>
+                                    <constraint firstItem="c6S-TT-lYp" firstAttribute="top" secondItem="Zly-ff-Z0C" secondAttribute="top" id="8qj-Pf-kZl"/>
+                                    <constraint firstAttribute="trailing" secondItem="c6S-TT-lYp" secondAttribute="trailing" constant="55" id="Gfj-Js-Ub0"/>
                                     <constraint firstItem="elC-8p-PUN" firstAttribute="top" secondItem="Zly-ff-Z0C" secondAttribute="top" id="JoZ-8b-Fe5"/>
-                                    <constraint firstAttribute="trailing" secondItem="c6S-TT-lYp" secondAttribute="trailing" constant="63" id="PvJ-DL-18s"/>
+                                    <constraint firstAttribute="bottom" secondItem="c6S-TT-lYp" secondAttribute="bottom" id="QQU-E1-Dge"/>
                                     <constraint firstItem="elC-8p-PUN" firstAttribute="leading" secondItem="Zly-ff-Z0C" secondAttribute="leading" constant="307" id="TzM-VD-ygl"/>
-                                    <constraint firstItem="c6S-TT-lYp" firstAttribute="leading" secondItem="Zly-ff-Z0C" secondAttribute="leading" id="hy9-kp-27q"/>
-                                    <constraint firstItem="c6S-TT-lYp" firstAttribute="top" secondItem="Zly-ff-Z0C" secondAttribute="top" id="lyT-DU-Gpa"/>
                                     <constraint firstAttribute="bottom" secondItem="elC-8p-PUN" secondAttribute="bottom" id="u0v-wU-4QM"/>
-                                    <constraint firstAttribute="bottom" secondItem="c6S-TT-lYp" secondAttribute="bottom" id="zYn-do-EF8"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eOk-BI-w6o">
-                                <rect key="frame" x="0.0" y="93" width="375" height="522"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eOk-BI-w6o">
+                                <rect key="frame" x="0.0" y="102" width="375" height="513"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SongsTableViewCell" rowHeight="84" id="Qvm-FN-25Q" customClass="SongsTableViewCell" customModule="SpotifyMusic" customModuleProvider="target">
@@ -122,6 +125,7 @@
                     <connections>
                         <outlet property="playpauseButton" destination="j0I-Ph-Zge" id="DhQ-RO-xkr"/>
                         <outlet property="tableView" destination="eOk-BI-w6o" id="otW-8e-VS7"/>
+                        <outlet property="textTimBaiHat" destination="c6S-TT-lYp" id="JhL-Hw-2tp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
